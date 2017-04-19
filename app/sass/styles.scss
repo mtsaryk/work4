@@ -1,1 +1,338 @@
 @import "myMixin";
+//@import "fonts";
+@import "reset";
+* {
+    margin: 0;
+    padding: 0;
+    outline: none;
+    line-height: 1em;
+}
+
+html {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 10px;
+}
+body {
+    overflow: auto;
+    color: rgba(2, 23, 37, 0.7);
+    font-weight: 300;
+    &.active{
+        overflow: hidden;
+    } 
+}
+
+#canvas {
+    @include mq("tablet", max){
+        display: none;
+    };
+}
+.mainNav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: rgba(2, 23, 37, .4);
+    z-index: 99;
+    @include mq("tablet", max){
+            background-color: rgba(2, 23, 37, 0.7);
+        };
+    &_wrapper {
+        padding: 15px 2%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        @include mq("tablet", max){
+            padding: 5px;
+        };
+    }
+    &_menuBtn {
+        position: relative;
+        color: #fff;
+        text-decoration: none;
+        &_text {
+            padding-right: 5rem;
+            font-size: 1.6rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            @include mq("tablet", max){
+                display: none;
+            };
+        }
+        &_line {
+            display: inline-block;
+            background-color: #fff;
+            width: 18px;
+            height: 2px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(0%, -50%);
+            @include mq("tablet", max){
+                top: 0;
+                left: 0;
+                transform: translateX(-200%);
+            };
+            &:after,
+            &:before {
+                content: "";
+                display: inline-block;
+                position: absolute;
+                top: 5px;
+                background-color: #fff;
+                width: 100%;
+                height: 100%;
+                transition: transform 0.3s;
+            }
+            &.active {
+                background-color: rgba(255,255,255,0);
+            }
+            &.active:after {
+                top: 0;
+                transform: rotate(45deg);
+            }
+            &.active:before {
+                top: 0;
+                transform: rotate(135deg);
+            }
+            &:before {
+                top: -5px;
+            }
+        }
+    }
+    &_drop {
+        text-align: center;
+        position: fixed;
+        height: 100%;
+        width: 100%;
+        background: rgb(45, 48, 53);
+        overflow: auto;
+        transition: all 0.5s;
+        transform: translateY(-100%);
+        z-index: 98;
+        &.active {
+            transform: translateY(0%);
+        }
+        &_li{
+            text-transform: uppercase;
+            font-size: 1.4rem;
+            margin: 30px auto;
+            color: white;
+            &:first-child {
+                margin-top: 100px;
+            }
+        };
+        &_link{
+            text-decoration: none;
+            text-transform: none;
+            font-size: 2.4rem;
+            color: rgb(212,175,55);
+            transition: background 0.2s;
+            display: block;
+            &:hover {
+                font-weight: 900;
+                text-shadow: 0 0 1em rgb(212,175,55);
+            }
+        };
+    }
+}
+.italic {
+    font-style: italic;
+}
+.header {
+    background-image: url(../img/cd-intro-bg.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-position-x: 50%;
+    background-position-y: 50%;
+    background-size: cover;
+    background-attachment: fixed;
+    height: 100vh;
+    overflow: hidden;
+    @include mq("tablet", max){
+        background-attachment: scroll;
+    };
+    &_heading {
+        font-size: 8rem;
+        position: absolute;
+        top: 50%;
+        width: 100%;
+        text-align: center;
+        color: #fff;
+        transform: translate(0,-50%);
+        font-weight: 300;
+        @include mq("phone", max){
+            font-size: 6rem;
+        };
+    }
+}
+.content {
+    height: 9999px;
+    &_miniHeading{
+        text-align: center;
+        margin-bottom: 1em;
+        text-transform: uppercase;
+        font-weight: 400;
+        font-size: 1.3rem;
+        color: rgb(212,175,55);
+    }
+    &_heading {
+        text-align: center;
+        margin-bottom: 0.75em;
+        font-size: 4.4rem;
+        font-weight: 600;
+    }
+    &_button {
+        margin-top: 50px;
+        text-decoration: none;
+        display: inline-block;
+        box-sizing: border-box;
+        font-size: 1.4rem;
+        padding:  15px 30px;
+        border: 1px solid black;
+        color: rgb(2,23,37);
+    }
+    &_about {
+        max-width: 768px;
+        width: 100%;
+        margin: auto;
+        text-align: center;
+        padding: 0 16px;
+        padding-top: 110px;
+        padding-bottom: 20px;
+        box-sizing: border-box;
+        @include mq("tablet",max){
+            padding-top: 75px;
+        };
+        &_text {
+            font-size: 1.8rem;
+            font-weight: 300;  
+        }
+        &_piople {
+            margin-top: 40px;
+            display: flex;
+            flex-flow: row wrap;
+            justify-content: center;
+            align-items: center;
+            
+            .piople {
+                background-color: #f9f9f9;
+                width: 30%;
+                margin: 1%;
+                padding: 1%;
+                box-sizing: border-box;
+                @include mq("tablet",max){
+                    width: 60%;
+                    margin: 10%;
+                };
+                @include mq("phablet",max){
+                    width: 90%;
+                    margin: 5%;
+                };
+                &_img{
+                    width: 100%;
+                }
+                &_position {
+                    color: rgb(212,175,55);
+                    text-transform: uppercase;
+                    font-weight: 600;
+                    font-size: 1.4rem;
+                    margin: 10px;
+                }
+                &_name {
+                    font-size: 2.1rem;
+                    font-weight: 600;
+                    margin-bottom: 20px;
+                }
+                &_description {
+                    font-size: 1.4rem;
+                }
+            }
+        }
+    }
+    &_works {
+        padding: 0 16px;
+        padding-top: 110px;
+        padding-bottom: 20px;
+        @include mq("tablet",max){
+            padding-top: 75px;
+        };
+        &_wrapper {
+            margin: auto;
+            margin-top: 50px;
+            max-width: 1220px;
+            display: flex;
+            flex-flow: row wrap;
+            justify-content: center;
+        }
+        &_item {
+            margin: 2px;
+            height: 300px;
+            width: 300px;
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            @include mq("tablet", max){
+                margin: auto;
+                margin-bottom: 15px;
+                height: 280px;
+                width: 280px;
+            };
+        }
+        .work1 {
+                background-image: url(../img/1.jpg);
+            }
+            .work2 {
+                background-image: url(../img/2.jpg);
+            }
+            .work3 {
+                background-image: url(../img/3.jpg);
+            }
+            .work4 {
+                background-image: url(../img/4.jpg);
+            }
+            .work5 {
+                background-image: url(../img/5.jpg);
+            }
+            .work6 {
+                background-image: url(../img/6.jpg);
+            }
+            .work7 {
+                background-image: url(../img/7.jpg);
+            }
+            .work8 {
+                background-image: url(../img/8.jpg);
+            }
+    }
+    &_blog {
+        margin: auto;
+        max-width: 768px;
+        .last_post {
+            display: flex;
+                flex-flow: column wrap;
+                justify-content: space-around;
+            padding: 20px;
+            &_wrapper{
+                background-color: #f9f9f9;
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                height: 370px;
+            }
+            &_img {
+                width: 50%;
+                
+            }
+            &_date {
+                color: #505d68;
+                font-size: 1.3rem;
+                font-weight: 400;
+            }
+            &_title {
+                
+            }
+            &_description {
+                
+            }
+        }
+    }
+    
+}

@@ -19,19 +19,19 @@ gulp.task("sass",function(){
 });
 
 // таски "scripts" и "css-libs" собирают соответствующие файлы библиотек в один сжатый файл.
-/*gulp.task("scripts",function(){
+gulp.task("scripts",function(){
 	return gulp.src(["app/libs/jquery/dist/jquery.min.js",
 					"app/libs/magnific-popup/dist/jquery.magnific-popup.min.js"])
 		.pipe(concat("libs.min.js"))
 	.pipe(uglify())
 	.pipe(gulp.dest("app/js"))
-});*/
-/*gulp.task("css-libs",["sass"],function(){
+});
+gulp.task("css-libs",["sass"],function(){
 	return gulp.src("app/css/libs.css")
 	.pipe(cssnano())
 	.pipe(rename({suffix:".min"}))
 	.pipe(gulp.dest("app/css"));
-});*/
+});
 gulp.task("browser-sync",function(){
 	browserSync({
 		server : {
@@ -57,13 +57,13 @@ gulp.task("img",function(){
 	})))
 		.pipe(gulp.dest("dist/img"));
 });
-gulp.task("watch",["browser-sync",/*"scripts"*/"sass"/*"css-libs"*/],function(){
+gulp.task("watch",["browser-sync","scripts","sass","css-libs"],function(){
 	gulp.watch("app/sass/**/*.+(scss|sass)",["sass"]);
 	gulp.watch("app/*.html",browserSync.reload);
 	gulp.watch("app/js/**/*.js",browserSync.reload);
 });
 
-gulp.task("build",['clean',"img",/*"css-libs"*/"sass",/*"scripts"*/],function(){
+gulp.task("build",['clean',"img","css-libs","sass","scripts"],function(){
 	var buildcss = gulp.src(["app/css/styles.css","app/css/libs.min.css"])
 	.pipe(gulp.dest("dist/css"));
 	var buildFonts = gulp.src("app/fonts/**/*")

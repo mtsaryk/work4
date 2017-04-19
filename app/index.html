@@ -2,20 +2,126 @@
 <html lang="en">
 
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>title</title>
-	<!--	<link rel="stylesheet" href="css/libs.min.css">-->
-	<link rel="stylesheet" href="css/styles.css">
-	<!--[if lt IE 9]>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>title</title>
+    <!--	<link rel="stylesheet" href="css/libs.min.css">-->
+    <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Playfair+Display:400,700' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="css/styles.css">
+    <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 </head>
 
 <body>
-	<!--	<script src="js/libs.min.js"></script>-->
-	<script src="js/main.js"></script>
+    <div class="page">
+        <nav class="mainNav">
+            <div class="mainNav_wrapper">
+                <div class="mainNav_logo">
+                    <a href="#"><img src="img/logo-elegant.png" alt=""></a>
+                </div>
+                <a href="#" class="mainNav_menuBtn"><span class="mainNav_menuBtn_text">menu</span><span class="mainNav_menuBtn_line"></span></a>
+            </div>
+        </nav>
+        <ul class="mainNav_drop">
+            <li class="mainNav_drop_li">who</li>
+            <li class="mainNav_drop_li"><a href="#" class="mainNav_drop_link">About Us</a></li>
+            <li class="mainNav_drop_li"><a href="#" class="mainNav_drop_link">Blog</a></li>
+            <li class="mainNav_drop_li">what</li>
+            <li class="mainNav_drop_li"><a href="#" class="mainNav_drop_link">See Our Projects</a></li>
+            <li class="mainNav_drop_li"><a href="#" class="mainNav_drop_link">Project Page</a></li>
+            <li class="mainNav_drop_li">where</li>
+            <li class="mainNav_drop_li"><a href="#" class="mainNav_drop_link">Contact Us</a></li>
+            <li class="mainNav_drop_li">follow us</li>
+            <li class="mainNav_drop_li">
+                <a href="#" class="mainNav_drop_link"></a>
+            </li>
+        </ul>
+        <header class="header" id="header">
+            <canvas id="canvas"></canvas>
+            <h1 class="header_heading">Say <span class="italic">Haloa</span> to your Portfolio</h1>
+        </header>
+        <section class="content">
+            <div class="content_about">
+                <h3 class="content_miniHeading">who we are</h3>
+                <h2 class="content_heading">Tell The World About Yourself</h2>
+                <p class="content_about_text">Typi non habent claritatem insitam; est usus legentis in iis qui facit eorum claritatem. Investigationes demonstraverunt lectores legere me lius quod ii legunt saepius. Claritas est etiam processus dynamicus, qui sequitur mutationem consuetudium lectorum. Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas humanitatis per seacula quarta decima et quinta decima. Eodem modo typi, qui nunc, fiant sollemnes in futurum.
+                </p>
+                <a href="#" class="content_button">Read More About Us</a>
+            </div>
+            <div class="content_works">
+                <h3 class="content_miniHeading">what we do</h3>
+                <h2 class="content_heading">Show Your Amazing Work</h2>
+                <div class="content_works_wrapper">
+                    <div class="content_works_item work1"></div>
+                    <div class="content_works_item work2"></div>
+                    <div class="content_works_item work3"></div>
+                    <div class="content_works_item work4"></div>
+                    <div class="content_works_item work5"></div>
+                    <div class="content_works_item work6"></div>
+                    <div class="content_works_item work7"></div>
+                    <div class="content_works_item work8"></div>
+                </div>
+            </div>
+            <div class="content_about">
+                <h3 class="content_miniHeading">who we are</h3>
+                <h2 class="content_heading">The Amazing People Behind This</h2>
+                <p class="content_about_text">Typi non habent claritatem insitam; est usus legentis in iis qui facit eorum claritatem. Investigationes demonstraverunt lectores legere me lius quod ii legunt saepius. Claritas est etiam processus dynamicus, qui sequitur mutationem consuetudium lectorum.
+                </p>
+                <div class="content_about_piople">
+<!--                    .piople*3>img[src="img/p$.png"].piople_img+.piople_info>h4.piople_position+h3.piople_name+p.piople_description{Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellat voluptatibus molestiae assumenda nobis, beatae, dolore et dignissimos tempore molestias saepe quidem reiciendis! Laborum asperiores aliquam cupiditate necessitatibus quae, cum, voluptatum.}-->
+               <div class="piople">
+                   <img src="img/p1.png" alt="" class="piople_img">
+                   <div class="piople_info">
+                       <h4 class="piople_position">ceo</h4>
+                       <h3 class="piople_name">Tobias Schneider</h3>
+                       <p class="piople_description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellat voluptatibus molestiae assumenda nobis, beatae, dolore et dignissimos tempore molestias saepe quidem reiciendis! Laborum asperiores aliquam cupiditate necessitatibus quae, cum, voluptatum.</p>
+                   </div>
+               </div>
+               <div class="piople">
+                   <img src="img/p2.png" alt="" class="piople_img">
+                   <div class="piople_info">
+                       <h4 class="piople_position">designer</h4>
+                       <h3 class="piople_name">Jack Knife</h3>
+                       <p class="piople_description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellat voluptatibus molestiae assumenda nobis, beatae, dolore et dignissimos tempore molestias saepe quidem reiciendis! Laborum asperiores aliquam cupiditate necessitatibus quae, cum, voluptatum.</p>
+                   </div>
+               </div>
+               <div class="piople">
+                   <img src="img/p3.png" alt="" class="piople_img">
+                   <div class="piople_info">
+                       <h4 class="piople_position">developer</h4>
+                       <h3 class="piople_name">Ricki Hall</h3>
+                       <p class="piople_description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellat voluptatibus molestiae assumenda nobis, beatae, dolore et dignissimos tempore molestias saepe quidem reiciendis! Laborum asperiores aliquam cupiditate necessitatibus quae, cum, voluptatum.</p>
+                   </div>
+               </div>
+                </div>
+            </div>
+            <div class="content_blog">
+                <h3 class="content_miniHeading">last post</h3>
+                <h2 class="content_heading">We Like to Write</h2>
+                <div class="last_post_wrapper">
+                    <img src="img/office3.jpg" alt="" class="last_post_img">
+                    <div class="last_post">
+                        <h3 class="last_post_date">19 april 2017</h3>
+                        <h2 class="last_post_title">Change Your Space</h2>
+                        <p class="last_post_description">
+                            Typi non habent claritatem insitam; est usus legentis in iis qui facit eorum claritatem. Investigationes demonstraverunt lectores.
+                        </p>
+                        <a href="#" class="last_post_button">Read</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <footer class="footer"></footer>
+    </div>
+    <script src="js/libs.min.js"></script>
+    <script src="js/TweenLite.min.js"></script>
+    <script src="js/EasePack.min.js"></script>
+    <script src="js/canva.js"></script>
+    <script src="js/main.js"></script>
 </body>
 
 </html>
