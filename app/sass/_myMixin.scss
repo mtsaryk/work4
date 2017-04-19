@@ -1,0 +1,116 @@
+$width: 100;
+$gutter: 10px;
+$columns: 12;
+@mixin cf {
+	&:after{
+		content: "";
+		width: 0;
+		height: 0;
+		display: block;
+		clear: both;
+	}
+}
+.container {
+	margin-left: auto;
+	margin-right: auto;
+	padding-left: $gutter;
+	padding-right: $gutter;
+	.row {
+		margin-left: -$gutter;
+		margin-right: -$gutter;
+		@include cf;
+		&>[class*="col-"] {
+			position: relative;
+			box-sizing: border-box;
+			min-height: 1px;
+			float: left;
+			padding-left: $gutter;
+			padding-right: $gutter;
+		}
+	}
+}
+
+@for $i from 1 through $columns {
+	.col-#{$i} {
+		width: (($width / $columns) * $i) * 1%;
+	}
+}
+
+@mixin arrow ($width, $height, $bg, $direction) {
+	width: 0;
+	height: 0;
+	border-style: solid;
+	@if $direction==t {
+		border-width: 0 ($width/2)+px $height + px $width/2 +px;
+		border-color: transparent transparent $bg transparent;
+	}
+	@if $direction==r {
+		border-width: $height / 2 + px 0 $height / 2 + px $width + px;
+		border-color: transparent transparent transparent $bg;
+	}
+	@if $direction==b {
+		border-width: $height + px $width / 2 + px 0 $width / 2 + px;
+		border-color: $bg transparent transparent transparent;
+	}
+	@if $direction==l {
+		border-width: $height / 2 + px $width + px $height / 2 + px 0;
+		border-color: transparent $bg transparent transparent;
+	}
+	@if $direction==tl {
+		border-width: $height + px $width + px 0 0;
+		border-color: $bg transparent transparent transparent;
+	}
+	@if $direction==tr {
+		border-width: 0 $width + px $height + px 0;
+		border-color: transparent $bg transparent transparent;
+	}
+	@if $direction==br {
+		border-width: 0 0 $height + px $width + px;
+		border-color: transparent transparent $bg transparent;
+	}
+	@if $direction==bl {
+		border-width: $height + px 0 0 $width + px;
+		border-color: transparent transparent transparent $bg;
+	}
+}
+@mixin pl {
+    &.placeholder { @content; }
+    &:-moz-placeholder { @content; }
+    &::-moz-placeholder { @content; }
+    &:-ms-input-placeholder { @content; }
+    &::-webkit-input-placeholder { @content; }
+}
+$breakpoints: (
+    "phone":        400px,
+    "phone-wide":   480px,
+    "phablet":      560px,
+    "tablet-small": 640px,
+    "tablet":       768px,
+    "tablet-wide":  1024px,
+    "desktop":      1248px,
+    "desktop-wide": 1440px
+);
+@mixin mq($width, $type: min) {
+    @if map_has_key($breakpoints, $width) {
+        $width: map_get($breakpoints, $width);
+        @if $type == max {
+            $width: $width - 1px;
+        }
+        @media only screen and (#{$type}-width: $width) {
+            @content;
+        }
+    }
+}
+@mixin truncate($truncation-boundary) {
+    max-width: $truncation-boundary;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+@mixin vertical-align {
+    position: relative;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
